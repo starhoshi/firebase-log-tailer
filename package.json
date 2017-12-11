@@ -1,6 +1,6 @@
 {
   "name": "firebase-log-tailer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Cloud Functions for Firebase log tailer.",
   "bin": {
     "npm-cli-sample": "bin/firebase-log-tailer"
