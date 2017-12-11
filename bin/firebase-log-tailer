@@ -9,12 +9,12 @@ program
   .usage('[options]')
   .option('--only <value>', 'only show logs of specified, comma-seperated functions (e.g. "funcA,funcB")', String)
   .option('-n, --lines <value>', 'specify number of log lines to fetch', parseInt, 50)
+  .option('-i, --interval <value>', 'timeInterval', parseInt, 20000)
   .parse(process.argv)
 
-var options = ['functions:log', '--lines', program.lines]
+var command = `functions:log --lines ${program.lines}`
 if (program.only) {
-  options.push('--only')
-  options.push(program.only)
+  command += `--only ${program.only}`
 }
 
 var logs = []
@@ -41,12 +41,9 @@ const showLog = () => {
       console.error('error: ' + error);
     }
   })
-
-  // log.stderr.on('data', (data) => {
-  // })
 }
 
 showLog()
 setInterval(() => {
   showLog()
-}, 10000);
+}, program.interval);
