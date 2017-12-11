@@ -4,9 +4,15 @@
 const program = require('commander')
 
 program
-  .usage('-n yourname')
-  .option('-n, --name <value>', 'your name', String, 'World')
+  .usage('[options]')
+  .option('--only <value>', 'only show logs of specified, comma-seperated functions (e.g. "funcA,funcB")', String)
+  .option('-n, --lines <value>', 'specify number of log lines to fetch', parseInt, 50)
   .parse(process.argv)
 
-console.log('Hello ' + program.name + '!')
+var options = ''
+if (program.only) {
+  options = `--only ${program.only}`
+}
+
+console.log(options)
 
