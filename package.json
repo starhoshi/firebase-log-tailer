@@ -1,0 +1,29 @@
+{
+  "name": "firebase-log-tailer",
+  "version": "0.0.1",
+  "description": "A Cloud Functions for Firebase log tailer.",
+  "bin": {
+    "npm-cli-sample": "bin/firebase-log-tailer"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starhoshi/firebase-log-tailer.git"
+  },
+  "keywords": [
+    "firebase",
+    "log",
+    "cloudfunctions"
+  ],
+  "author": "star__hoshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/starhoshi/firebase-log-tailer/issues"
+  },
+  "homepage": "https://github.com/starhoshi/firebase-log-tailer#readme",
+  "dependencies": {
+    "commander": "^2.12.2"
+  }
+}
