@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/starhoshi/firebase-log-tailer#readme",
   "dependencies": {
-    "commander": "^2.12.2"
+    "commander": "^2.12.2",
+    "lodash.difference": "^4.5.0"
   }
 }

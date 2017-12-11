@@ -2,6 +2,8 @@
 'use strict'
 
 const program = require('commander')
+const exec = require('child_process').exec
+const difference = require('lodash.difference');
 
 program
   .usage('[options]')
@@ -9,10 +11,42 @@ program
   .option('-n, --lines <value>', 'specify number of log lines to fetch', parseInt, 50)
   .parse(process.argv)
 
-var options = ''
+var options = ['functions:log', '--lines', program.lines]
 if (program.only) {
-  options = `--only ${program.only}`
+  options.push('--only')
+  options.push(program.only)
 }
 
-console.log(options)
+var logs = []
+const showLog = () => {
+  const log = exec('firebase functions:log', (error, stdout, stderr) => {
+    if (stdout) {
+      const newLog = stdout
+        .toString()
+        .split('\n')
+        .filter(value => {
+          return value !== ''
+        })
+      const diff = difference(newLog, logs)
+      logs = logs.concat(diff)
 
+      if (diff.length != 0) {
+        console.log(diff.join('\n'))
+      }
+    }
+    if (stderr) {
+      console.error('stderr: ' + stderr);
+    }
+    if (error !== null) {
+      console.error('error: ' + error);
+    }
+  })
+
+  // log.stderr.on('data', (data) => {
+  // })
+}
+
+showLog()
+setInterval(() => {
+  showLog()
+}, 10000);
