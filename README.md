@@ -1,5 +1,9 @@
 # firebase-log-tailer
+
+[![npm version](https://badge.fury.io/js/firebase-log-tailer.svg)](https://badge.fury.io/js/firebase-log-tailer)
+
 A Cloud Functions for Firebase log tailer.
+
 
 ## Install
 
