@@ -23,7 +23,7 @@ $ firebase-log-tailer
 ## Options
 
 ```
-$ npm-cli-sample -h
+$ firebase-log-tailer -h
 
   Usage: npm-cli-sample [options]
 
